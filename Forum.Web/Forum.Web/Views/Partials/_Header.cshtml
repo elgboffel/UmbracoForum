@@ -1,0 +1,34 @@
+﻿@inherits UmbracoTemplatePage
+@using Our.Umbraco.LinksPicker.Models
+@using Datagraf.Web.Models.ModelsBuilder
+
+@{
+    var website = Model.Content.AncestorOrSelf<Website>();
+    var page = Model.Content;
+
+    var showSubNav = page.IsDocumentType("gridPage");
+}
+
+<div class="white-bg hidden-xs">
+    <div class="container">
+        <div class="row flex">
+            <div class="col-xs-12 col-sm-3 col-md-offset-1">
+                @if(!string.IsNullOrEmpty(website.Logo))
+                {
+                    <a href="@website.Url" class="logo">
+                        @Html.Raw(website.Logo)
+                    </a>
+                }
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-8">
+                @Html.Partial("_DesktopNav", Model)
+            </div>
+        </div>
+    </div>
+    <div class="toned-border"></div>
+</div>
+@if (showSubNav)
+{
+    @Html.Partial("Shared/_SubNav", Model)
+}
+

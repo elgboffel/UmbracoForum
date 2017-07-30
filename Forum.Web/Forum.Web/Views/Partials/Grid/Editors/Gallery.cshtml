@@ -1,0 +1,47 @@
+﻿@inherits UmbracoViewPage<LeBlenderModel>
+@using Lecoati.LeBlender.Extension.Models
+@using Datagraf.Web.Models.ComponentModels
+
+@{
+    Html.RequiresCss("~/Content/components/lightbox2/dist/css/lightbox.min.css", 1, 2, new { @defer = string.Empty })
+        .RequiresJs("~/Content/components/lightbox2/dist/js/lightbox.min.js", 1, 2, new { @defer = string.Empty });
+}
+
+@foreach (var item in Model.Items)
+{
+    @renderContent(item)
+}
+
+@helper renderContent(LeBlenderValue content)
+{
+    var images = content.GetValue<IEnumerable<IPublishedContent>>("images");
+    var hasImages = images != null ? images : Enumerable.Empty<IPublishedContent>();
+
+    if (images.Any())
+    {
+        <div class="gallery">
+            @foreach (var image in images)
+            {
+                @RenderMedia(image, content)
+            }
+        </div>
+    }
+}
+
+
+
+@helper RenderMedia(IPublishedContent image, LeBlenderValue content)
+{
+
+    <div class="gallery__item">
+        @Html.Partial("Components/_EasterEgg", image)
+        @Html.Partial(
+            "Components/_Media",
+            new MediaViewModel
+            {
+                Image = image,
+                GridSize = 10
+            }
+        )
+    </div>
+}

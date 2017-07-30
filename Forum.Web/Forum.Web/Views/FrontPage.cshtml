@@ -1,7 +1,11 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<FrontPage>
-@using BaseSite.Web.Models.ModelsBuilder
-@using BaseSite.Web.Models.PartialModels
-@using BaseSite.Web.Models.ComponentModels
+@using Danva.Web.Models.ModelsBuilder
+@using Danva.Web.Models.PartialModels
+@using Danva.Web.Models.ComponentModels
 @{
 	Layout = "_Layout.cshtml";
 }
+
+<div class="front-page">
+    @Html.GetGridHtml(Model.Content, "layout", "FrontPage")
+</div>

@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<LeBlenderModel>
+@using Lecoati.LeBlender.Extension.Models
+@using Datagraf.Web.Models.ComponentModels
+
+@foreach (var item in Model.Items)
+{
+    @renderContent(item)
+}
+
+@helper renderContent(LeBlenderValue content)
+{
+
+     <div class="factbox">
+        @if(content.HasProperty("headline"))
+        {
+        <h4 class="factbox__title">@Html.Raw(content.GetValue("headline"))</h4>
+        }
+        @if(content.HasProperty("rte"))
+        {
+            @Html.Raw(content.GetValue<string>("rte"))
+        }
+        <div class="factbox__spacer"></div>
+     </div>
+}

@@ -1,0 +1,104 @@
+﻿@inherits UmbracoViewPage
+@using Datagraf.Web.Models.ModelsBuilder
+@using Datagraf.Web.Models.ComponentModels
+@using Our.Umbraco.LinksPicker.Models
+
+@{
+    var website = Model.AncestorOrSelf<Website>();
+
+    var footer = website.Layout;
+}
+
+<footer class="footer white-bg">
+    <div class="container">
+        <div class="row visible-xs visible-sm">
+            <div class="col-xs-12">
+                <div class="speach-bubble">
+                    <svg width="100%" height="100%" viewBox="0 0 28 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><rect id="Moodbordspeech" x="-173" y="-1433" width="1200" height="2706" style="fill:#fff;" /><g><clipPath id="_clip1x"><rect x="0.148" y="-0.021" width="28.001" height="33" /></clipPath><g><path d="M14.432,32.964l0,0.003c-3.928,-0.953 -7.388,-3.504 -9.908,-6.558c-2.73,-3.311 -4.375,-7.623 -4.375,-12.426c0,-3.923 1.548,-7.426 4.052,-9.944c2.505,-2.52 5.965,-4.06 9.786,-4.06c3.82,0 7.361,1.582 9.946,4.125c2.586,2.539 4.216,6.042 4.216,9.882c0,4.083 -1.381,7.575 -3.805,10.01c-2.426,2.434 -5.893,3.81 -10.069,3.66c-0.089,-0.002 -0.166,-0.005 -0.239,-0.007c-0.008,-0.002 -0.017,-0.004 -0.027,-0.004c-0.192,0 -0.347,0.159 -0.347,0.354c0,0.103 0.12,0.507 0.261,0.86l0.476,1.368l0.656,2.045l-0.003,0c0.017,0.054 0.029,0.111 0.029,0.171c0,0.295 -0.235,0.537 -0.527,0.537c-0.042,0 -0.083,-0.007 -0.122,-0.016" style="fill:#0083c3;fill-rule:nonzero;" /></g></g></svg>
+                </div>
+            </div>
+        </div>
+        <div class="row flex">
+            @for(var i = 0; i < footer.Count(); i++)
+            {
+                var element = footer.ElementAt(i);
+                var isIndexZero = i == 0;
+                var addOffset = isIndexZero ? "col-md-offset-1" : "";
+                switch (element.DocumentTypeAlias)
+                {
+                    case "multipleLinks":
+                        @renderLinks(element, addOffset, isIndexZero) break;
+
+                    default:
+                        @renderRte(element, addOffset, isIndexZero) break;
+                }
+
+            }
+        </div>
+        <div class="row flex">
+            <div class="col-xs-10 col-sm-2 col-md-push-9">
+                @Html.CachedPartial(
+                    "Components/_SoMe",
+                    new SoMeViewModel
+                    {
+                        FacebookUrl = website.FacebookLink,
+                        LinkedInUrl = website.LinkedInLink,
+                        InstagramUrl = website.InstagramLink
+                    },
+                    3600
+                )
+            </div>
+        </div>
+    </div>
+</footer>
+
+@helper renderLinks(IPublishedContent multipleLinks, string addOffset, bool isIndexZero)
+{
+    var links = multipleLinks
+        .GetPropertyValue("links", Enumerable.Empty<LinksPickerItem>()) ;
+    <div class="col-xs-10 col-sm-6 col-md-2 @(addOffset)">
+        @if (multipleLinks.HasValue("headline"))
+        {
+            <h4>@Html.Raw(multipleLinks.GetPropertyValue<string>("headline"))</h4>
+        }
+        <div class="link-list">
+            @if(links.Any())
+            {
+                <ul class="list-unstyled">
+                    @foreach(var link in links)
+                    {
+                        <li><a href="@link.Url" target="@link.Target">@link.Name</a></li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+}
+
+@helper renderRte(IPublishedContent rte, string addOffset, bool isIndexZero)
+{
+    <div class="col-xs-10 col-sm-6 col-md-4 @(addOffset)">
+        @if (isIndexZero)
+        {
+            @renderSpeachBubble()
+        }
+        @if (rte.HasValue("headline"))
+        {
+            <h4>@Html.Raw(rte.GetPropertyValue<string>("headline"))</h4>
+        }
+        @if (rte.HasValue("rte"))
+        {
+            <div class="rte">
+                @Html.Raw(rte.GetPropertyValue<IHtmlString>("rte", null))
+            </div>
+        }
+    </div>
+}
+
+@helper renderSpeachBubble() {
+    <div class="speach-bubble hidden-xs hidden-sm">
+        <svg width="100%" height="100%" viewBox="0 0 28 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><rect id="Moodbord" x="-173" y="-1433" width="1200" height="2706" style="fill:#fff;" /><g><clipPath id="_clip1y"><rect x="0.148" y="-0.021" width="28.001" height="33" /></clipPath><g><path d="M14.432,32.964l0,0.003c-3.928,-0.953 -7.388,-3.504 -9.908,-6.558c-2.73,-3.311 -4.375,-7.623 -4.375,-12.426c0,-3.923 1.548,-7.426 4.052,-9.944c2.505,-2.52 5.965,-4.06 9.786,-4.06c3.82,0 7.361,1.582 9.946,4.125c2.586,2.539 4.216,6.042 4.216,9.882c0,4.083 -1.381,7.575 -3.805,10.01c-2.426,2.434 -5.893,3.81 -10.069,3.66c-0.089,-0.002 -0.166,-0.005 -0.239,-0.007c-0.008,-0.002 -0.017,-0.004 -0.027,-0.004c-0.192,0 -0.347,0.159 -0.347,0.354c0,0.103 0.12,0.507 0.261,0.86l0.476,1.368l0.656,2.045l-0.003,0c0.017,0.054 0.029,0.111 0.029,0.171c0,0.295 -0.235,0.537 -0.527,0.537c-0.042,0 -0.083,-0.007 -0.122,-0.016" style="fill:#0083c3;fill-rule:nonzero;" /></g></g></svg>
+    </div>
+}
+
+

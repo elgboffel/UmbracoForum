@@ -1,0 +1,42 @@
+﻿@inherits UmbracoViewPage<LeBlenderModel>
+@using Lecoati.LeBlender.Extension.Models
+@using Datagraf.Web.Models.ComponentModels
+@using Umbraco.Web
+
+@foreach (var item in Model.Items)
+{
+        @renderContent(item)
+}
+
+@helper renderContent(LeBlenderValue content)
+{
+    var contentPicker = content.GetValue<IEnumerable<IPublishedContent>>("contentPicker");
+    if (contentPicker != null)
+    {
+        foreach (var page in contentPicker)
+        {
+            @renderPage(page)
+        }
+    }
+}
+
+@helper renderPage(IPublishedContent page)
+{
+    var svg = page.HasProperty("heroSvg") && !page.HasValue("teaserImage") ? page.GetPropertyValue<string>("heroSvg", "") : "";
+    <div class="col-xs-12 col-sm-4 col-md-3">
+        @Html.Partial(
+        "Components/_Card",
+        new CardViewModel
+        {
+            Svg = svg,
+            Image = page.GetPropertyValue("teaserImage", page.GetPropertyValue("heroImage", Enumerable.Empty<IPublishedContent>())).FirstOrDefault(),
+            GridSize = 3,
+            GridSizeSM = 4,
+            ImageHeight = 200,
+            Headline = page.GetPropertyValue<string>("teaserHeadline", page.GetPropertyValue<string>("headline", page.Name)),
+            Lead = page.GetPropertyValue<string>("teaserLead", page.GetPropertyValue<string>("lead", "")),
+            Url = page.Url
+
+        })
+    </div>
+}

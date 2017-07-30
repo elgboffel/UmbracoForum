@@ -86,6 +86,9 @@
     <Reference Include="interfaces, Version=1.0.6396.36619, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.6.4\lib\net45\interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Lecoati.LeBlender.Extension, Version=1.0.8.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lecoati.LeBlender.1.0.8.4\lib\Lecoati.LeBlender.Extension.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.6.4\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -150,6 +153,15 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Our.Umbraco.LinksPicker, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.LinksPicker.1.0.1.0\lib\net451\Our.Umbraco.LinksPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Our.Umbraco.NestedContent, Version=0.4.6286.19708, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.NestedContent.0.4.0\lib\net45\Our.Umbraco.NestedContent.dll</HintPath>
+    </Reference>
+    <Reference Include="Our.Umbraco.PropertyEditorConverters, Version=3.1.3.98, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.CoreValueConverters.3.1.3\lib\net45\Our.Umbraco.PropertyEditorConverters.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -284,6 +296,96 @@
     <Content Include="config\BaseRestExtensions.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="App_Plugins\NestedContent\package.manifest" />
+    <Content Include="App_Plugins\LeBlender\Web.config" />
+    <Content Include="App_Plugins\LeBlender\views_samples\Tabs.cshtml" />
+    <Content Include="App_Plugins\LeBlender\views_samples\Highlight.cshtml" />
+    <Content Include="App_Plugins\LeBlender\views_samples\Carousel.cshtml" />
+    <Content Include="App_Plugins\LeBlender\package.manifest" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\views\LeBlender.cshtml" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\views\Base.cshtml" />
+    <Content Include="App_Plugins\LinksPicker\package.manifest" />
+    <Content Include="Views\Forum.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="package.json" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="Content\less\custom-forms.less" />
+    <Content Include="Content\less\default.less" />
+    <Content Include="Content\less\main.less" />
+    <Content Include="Content\components\bootstrap\less\.csscomb.json" />
+    <Content Include="Content\components\bootstrap\less\.csslintrc" />
+    <Content Include="Content\components\bootstrap\less\alerts.less" />
+    <Content Include="Content\components\bootstrap\less\badges.less" />
+    <Content Include="Content\components\bootstrap\less\bootstrap.less" />
+    <Content Include="Content\components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Content\components\bootstrap\less\button-groups.less" />
+    <Content Include="Content\components\bootstrap\less\buttons.less" />
+    <Content Include="Content\components\bootstrap\less\carousel.less" />
+    <Content Include="Content\components\bootstrap\less\close.less" />
+    <Content Include="Content\components\bootstrap\less\code.less" />
+    <Content Include="Content\components\bootstrap\less\component-animations.less" />
+    <Content Include="Content\components\bootstrap\less\dropdowns.less" />
+    <Content Include="Content\components\bootstrap\less\forms.less" />
+    <Content Include="Content\components\bootstrap\less\glyphicons.less" />
+    <Content Include="Content\components\bootstrap\less\grid.less" />
+    <Content Include="Content\components\bootstrap\less\input-groups.less" />
+    <Content Include="Content\components\bootstrap\less\jumbotron.less" />
+    <Content Include="Content\components\bootstrap\less\labels.less" />
+    <Content Include="Content\components\bootstrap\less\list-group.less" />
+    <Content Include="Content\components\bootstrap\less\media.less" />
+    <Content Include="Content\components\bootstrap\less\mixins.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\forms.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\grid.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\image.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\labels.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\panels.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\resize.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\size.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Content\components\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\components\bootstrap\less\modals.less" />
+    <Content Include="Content\components\bootstrap\less\navbar.less" />
+    <Content Include="Content\components\bootstrap\less\navs.less" />
+    <Content Include="Content\components\bootstrap\less\normalize.less" />
+    <Content Include="Content\components\bootstrap\less\pager.less" />
+    <Content Include="Content\components\bootstrap\less\pagination.less" />
+    <Content Include="Content\components\bootstrap\less\panels.less" />
+    <Content Include="Content\components\bootstrap\less\popovers.less" />
+    <Content Include="Content\components\bootstrap\less\print.less" />
+    <Content Include="Content\components\bootstrap\less\progress-bars.less" />
+    <Content Include="Content\components\bootstrap\less\responsive-embed.less" />
+    <Content Include="Content\components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Content\components\bootstrap\less\scaffolding.less" />
+    <Content Include="Content\components\bootstrap\less\tables.less" />
+    <Content Include="Content\components\bootstrap\less\theme.less" />
+    <Content Include="Content\components\bootstrap\less\thumbnails.less" />
+    <Content Include="Content\components\bootstrap\less\tooltip.less" />
+    <Content Include="Content\components\bootstrap\less\type.less" />
+    <Content Include="Content\components\bootstrap\less\utilities.less" />
+    <Content Include="Content\components\bootstrap\less\variables.less" />
+    <Content Include="Content\components\bootstrap\less\wells.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -292,9 +394,43 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Logs\UmbracoTraceLog.Johnny-pc.txt" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\delete.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\delete.js" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\edit.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\edit.js" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\sort.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\sort.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\blendereditorwrapper.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\layersresizabledraggable.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\propertygrideditorwrapper.js" />
+    <Content Include="App_Plugins\LeBlender\common\filter\orderobjectby.filter.js" />
+    <Content Include="App_Plugins\LeBlender\common\services\requesthelper.service.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\assets\parameterconfig.css" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.prevalues.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.prevalues.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblendereditor.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblendereditor.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblenderproperties.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblenderproperties.html" />
+    <Content Include="App_Plugins\LeBlender\editors\textstring\textstringconfig.html" />
+    <Content Include="App_Plugins\LeBlender\views_samples\sample_styles.css" />
+    <Content Include="App_Plugins\LinksPicker\linkspicker.controller.js" />
+    <Content Include="App_Plugins\LinksPicker\linkspicker.css" />
+    <Content Include="App_Plugins\LinksPicker\linkspicker.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\NestedContent\Css\nestedcontent.css" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.controllers.js" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.directives.js" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.filters.js" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.resources.js" />
+    <Content Include="App_Plugins\NestedContent\Views\nestedcontent.doctypepicker.html" />
+    <Content Include="App_Plugins\NestedContent\Views\nestedcontent.editor.html" />
+    <Content Include="App_Plugins\NestedContent\Views\nestedcontent.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -314,8 +450,10 @@
     <Content Include="config\Lang\ru-RU.user.xml" />
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
+    <Content Include="Content\components\picturefill\dist\picturefill.min.js" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,34 @@
+﻿@inherits UmbracoViewPage<LeBlenderModel>
+@using Lecoati.LeBlender.Extension.Models
+@using Datagraf.Web.Models.ComponentModels
+
+@foreach (var item in Model.Items)
+{
+    @renderContent(item)
+}
+
+@helper renderContent(LeBlenderValue content)
+{
+    var selectedImage = content.GetValue<IEnumerable<IPublishedContent>>("image");
+
+     <div class="grid-image">
+         @if(selectedImage != null)
+         {
+            var image = selectedImage.FirstOrDefault();
+             <div class="grid-image-corner">
+                @Html.Partial(
+                "Components/_Media",
+                new MediaViewModel
+                {
+                    Image = image,
+                    GridSize = ViewBag.grid
+                })
+             </div>
+         }
+         @if (content.HasProperty("imageText"))
+         {
+            <small>@Html.Raw(content.GetValue<string>("imageText"))</small>
+         }
+         <div class="spacer25"></div>
+     </div>
+}

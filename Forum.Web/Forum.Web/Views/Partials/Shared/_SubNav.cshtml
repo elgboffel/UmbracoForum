@@ -1,0 +1,58 @@
+﻿@inherits UmbracoTemplatePage
+
+@{
+    //Html.RequiresJs("~/scripts/app/magic-hover.js", 1, 2, new { @defer = "" });
+    var page = Model.Content;
+    var children = page.Children()
+        .Where(c => c.IsVisible());
+
+    var siblings = page.Siblings()
+        .Where(c => c.IsVisible());
+
+    var LevelIsHigher = page.Level > 2;
+}
+@if (children.Any())
+{
+    <div class="bg-light-gold bg-light-gold--border hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-11 col-md-offset-1">
+                    <div class="sub-nav">
+                        <ul class="list-unstyled">
+                            @foreach (var child in children)
+                            {
+                                @renderChildren(child)
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (siblings.Any() && LevelIsHigher)
+{
+    <div class="bg-light-gold bg-light-gold--border hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-11 col-md-offset-1">
+                    <div class="sub-nav">
+                        <ul class="list-unstyled">
+                            @foreach (var sibling in siblings)
+                            {
+                                @renderChildren(sibling)
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@helper renderChildren(IPublishedContent page)
+{
+
+var active = page.Equals(Model.Content) ? "sub-nav__link--active" : null;
+    <li class="sub-nav__link @(active)"><a href="@page.Url">@page.Name</a></li>
+}

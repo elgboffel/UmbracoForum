@@ -1,0 +1,10 @@
+{
+  "name": "ClientName.Web",
+  "dependencies": {
+    "bootstrap": "*",
+    "picturefill": "*"
+  },
+  "resolutions": {
+    "bootstrap": "*"
+  }
+}

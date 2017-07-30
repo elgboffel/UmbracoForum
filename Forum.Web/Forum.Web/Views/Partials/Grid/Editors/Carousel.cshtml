@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<LeBlenderModel>
+@using Lecoati.LeBlender.Extension.Models
+@using Datagraf.Web.Models.ComponentModels
+
+@foreach (var item in Model.Items)
+{
+    @renderCarousel(item)
+}
+
+@helper renderCarousel(LeBlenderValue content)
+{
+    var carousel = content.GetValue<IEnumerable<IPublishedContent>>("carousel");
+    <div class="grid-factbox">
+        @Html.Partial(
+        "Components/_FluidCarouselWithText",
+        new CarouselViewModel
+        {
+            Carousel = carousel,
+            GridSize = 12,
+            ImageHeight = 900,
+            ImageHeightMobile = 450
+        })
+    </div>
+}
