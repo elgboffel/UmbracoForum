@@ -61,8 +61,14 @@
         "config": {
             "editors": [
                 {
+                    "name": "Faktaboks Position",
+                    "alias": "factboxPosition",
+                    "propretyType": {},
+                    "dataType": "30fb23d2-2f02-40e6-b0e3-8f04780f282f"
+                },
+                {
                     "name": "Heading",
-                    "alias": "headline",
+                    "alias": "heading",
                     "propretyType": {},
                     "dataType": "0cc0eba1-9960-42c9-bf9b-60e150b429ae"
                 },

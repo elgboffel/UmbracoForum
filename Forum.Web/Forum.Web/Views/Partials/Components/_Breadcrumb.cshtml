@@ -1,5 +1,5 @@
 ﻿@inherits UmbracoViewPage<BreadcrumbViewModel>
-@using Datagraf.Web.Models.ComponentModels
+@using AnneVibekeRejser.Web.Models.ComponentModels
 
 @{
     var startNode = Model.CurrentPage;
@@ -18,14 +18,12 @@
 {
     <ul class="breadcrumb">
         <li>
-            <a class="breadcrumb__icon" href="@siteRoot.Url">
-                <svg width="100%" height="100%" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path id="home.-icon" d="M1.981,4.92l-0.81,0.675c-0.056,0.037 -0.111,0.053 -0.167,0.048c-0.061,-0.009 -0.11,-0.035 -0.147,-0.076l-0.432,-0.517c-0.038,-0.046 -0.054,-0.101 -0.049,-0.164c0.004,-0.063 0.03,-0.113 0.077,-0.15l5.017,-4.18c0.149,-0.121 0.325,-0.181 0.53,-0.181c0.205,0 0.381,0.06 0.53,0.181l1.703,1.424l0,-1.361c0,-0.065 0.021,-0.118 0.063,-0.16c0.042,-0.042 0.095,-0.063 0.16,-0.063l1.34,0c0.065,0 0.119,0.021 0.16,0.063c0.042,0.042 0.063,0.095 0.063,0.16l0,2.847l1.528,1.27c0.047,0.037 0.073,0.087 0.077,0.15c0.005,0.063 -0.011,0.118 -0.049,0.164l-0.432,0.517c-0.037,0.041 -0.086,0.067 -0.147,0.076l-0.021,0c-0.06,0 -0.109,-0.016 -0.146,-0.048l-0.81,-0.675l0,3.961c0,0.121 -0.044,0.226 -0.132,0.314c-0.089,0.088 -0.193,0.133 -0.314,0.133l-2.68,0l0,-2.68l-1.786,0l0,2.68l-2.68,0c-0.121,0 -0.225,-0.044 -0.314,-0.133c-0.088,-0.088 -0.132,-0.193 -0.132,-0.314l0,-3.961Z" style="fill:none;stroke:#d2ccbc;stroke-width:0.75px;"/></svg>
-            </a>
+            <a href="@siteRoot.Url">Hjem</a>
         </li>
         @foreach (var crumb in breadcrumbs)
         {
             bool active = crumb.Equals(startNode);
-            <li class="@(active ? "active" : string.Empty)">
+            <li class="@(active ? "breadcrumb__active" : string.Empty)">
                 @if (active && Model.ShowCurrentPage != false)
                 {
                     <span class="breadcrumb__truncate">@Html.Raw(crumb.Name)</span>

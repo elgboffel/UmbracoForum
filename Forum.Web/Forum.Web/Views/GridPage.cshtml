@@ -1,69 +1,57 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<GridPage>
-@using BaseSite.Web.Models.ModelsBuilder
-@using BaseSite.Web.Models.PartialModels
-@using BaseSite.Web.Models.ComponentModels
-
-
+﻿@inherits UmbracoViewPage<IGenericPage>
+@using AnneVibekeRejser.Web.Models.ComponentModels
 
 @{
 	Layout = "_Layout.cshtml";
-    var page = Model.Content;
+    var page = Model;
 }
-<div class="grid-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                @Html.CachedPartial(
-                "Components/_Hero",
-                new HeroViewModel
-                {
-                    Image = page.HeroImage,
-                    GridSize = 12,
-                    ImageHeight = 500,
-                    ImageHeightMobile = 350,
-                    Headline = page.ImageText
-                }, 3600, cacheByPage: true)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                @Html.CachedPartial(
-                "Components/_Breadcrumb",
-                new BreadcrumbViewModel
-                {
-                    CurrentPage = Model.Content,
-                    ShowCurrentPage = true
-                }, 3600, cacheByPage: true)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                @Html.CachedPartial(
-                "Components/_PageHeader",
-                new PageHeaderViewModel
-                {
-                    ArticleType = page.ArticleType,
-                    Trompet = page.Trompet,
-                    Date = page.Date,
-                    Headline = page.Headline,
-                    Lead = page.Lead,
-                    Author = page.Author,
-                }, 3600, cacheByPage: true)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-8">
-                @Html.GetGridHtml(Model.Content, "layout")
-            </div>
-            <div class="col-xs-12 col-sm-4">
-                @Html.Partial(
-               "Shared/_Sidebar",
-               new SidebarViewModel
-               {
-                   Headline = page.SidebarHeadline,
-                   Layout = page.SidebarLayout
-               })
-            </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            @Html.CachedPartial(
+            "Components/_Hero",
+            new HeroViewModel
+            {
+                Image = page.HeroImage,
+                GridSize = 12,
+                ImageHeight = 500,
+                ImageHeightMobile = 350,
+                Headline = page.ImageText
+            }, 3600, cacheByPage: true)
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            @Html.CachedPartial(
+            "Components/_Breadcrumb",
+            new BreadcrumbViewModel
+            {
+                CurrentPage = page,
+                ShowCurrentPage = true
+            }, 3600, cacheByPage: true)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            @Html.CachedPartial(
+            "Components/_PageHeader",
+            new PageHeaderViewModel
+            {
+                Trompet = page.Trompet,
+                Date = page.Date,
+                Headline = page.Heading,
+                Lead = page.Lead,
+                Author = page.Author,
+            }, 3600, cacheByPage: true)
+        </div>
+    </div>
+    <aside class="row">
+        <div class="col-xs-12 col-sm-8">
+            @Html.GetGridHtml(page, "layout")
+        </div>
+        <div class="col-xs-12 col-sm-4">
+
+        </div>
+    </aside>
 </div>

@@ -1,0 +1,58 @@
+﻿/*.left-line-hover(@color) {
+    position:relative;
+    &:before {
+        transition: opacity 400ms, left 400ms;
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -25px;
+        height: 100%;
+        width: 5px;
+        background-color: @color;
+        opacity: 0;
+    }
+
+    &:hover {
+        &:before {
+            left: -12px;
+            opacity: 1;
+        }
+    }
+}
+
+.right-line-hover(@color) {
+    position:relative;
+    &:before {
+        transition: opacity 400ms, right 400ms;
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: -25px;
+        height: 100%;
+        width: 5px;
+        background-color: @color;
+        opacity: 0;
+    }
+
+    &:hover {
+        &:before {
+            right: -12px;
+            opacity: 1;
+        }
+    }
+}*/
+
+.line-bottom-hover(@color) {
+    position: relative;
+    &:after {
+        transition: width 400ms, opacity 400ms;
+        content: "";
+        position:absolute;
+        bottom: -7px;
+        left:0;
+        height: 2px;
+        width: 0;
+        background-color: @color;
+        opacity:0;
+    }
+}

@@ -38,6 +38,6 @@
     "commit": "115dd76cbc9d6c958240758ef8d12fda03aff261"
   },
   "_source": "https://github.com/scottjehl/picturefill.git",
-  "_target": "*",
+  "_target": "^3.0.1",
   "_originalSource": "picturefill"
 }

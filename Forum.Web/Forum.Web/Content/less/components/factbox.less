@@ -1,0 +1,92 @@
+﻿@import (reference) "../../components/bootstrap/less/variables.less";
+@import (reference) "../../components/bootstrap/less/mixins.less";
+
+.factbox {
+    position: relative;
+    padding-top: 1px;
+    width: 100%;
+    font-size: 15px;
+    font-family: @font-family-sans-serif;
+    border-top: solid 10px @brand-primary;
+    border-bottom: solid 1px @brand-primary;
+    padding: 20px 25px 0 25px;
+    .fluid-property(margin-bottom, 20, 35);
+
+    p, ol, ul {
+        margin-bottom: 10px;
+    }
+
+    &__heading {
+        margin-bottom: 17px;
+    }
+
+    &__spacer {
+        margin-top: 20px;
+    }
+
+    &--position-67 {
+        margin-left: 0;
+        float: left;
+        margin-right: 40px;
+
+        @media(min-width: @screen-md-min) {
+            width: 320px;
+            margin-left: -200px;
+        }
+    }
+
+    &--position-68 {
+        margin-left: 0;
+        float: left;
+        margin-right: 30px;
+        width: 100%;
+        margin-bottom: 20px;
+
+        @media(min-width: @screen-sm-min) {
+            width: 320px;
+            margin-bottom: 40px;
+        }
+
+        @media(min-width: @screen-md-min) {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        @media(min-width: @screen-lg-min) {
+            width: 320px;
+            margin-bottom: 40px;
+        }
+    }
+
+    &--position-69 {
+        margin-left: 30px;
+        float: right;
+        margin-right: 0px;
+
+        @media(min-width: @screen-md-min) {
+            width: 330px;
+            margin-right: -200px;
+        }
+    }
+
+    &--position-70 {
+        margin-left: 30px;
+        float: right;
+        margin-right: 0;
+
+        @media(min-width: @screen-sm-min) {
+            width: 320px;
+            margin-bottom: 40px;
+        }
+
+        @media(min-width: @screen-md-min) {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        @media(min-width: @screen-lg-min) {
+            width: 320px;
+            margin-bottom: 40px;
+        }
+    }
+}

@@ -1,20 +1,24 @@
 ﻿@inherits UmbracoViewPage<HeroViewModel>
-@using Datagraf.Web.Models.ComponentModels
+@using AnneVibekeRejser.Web.Models.ComponentModels
 
 <div class="hero">
     <div class="hero__image">
-        @if (Model.Image.Any())
+        @if (Model.Image != null)
         {
-            var image = Model.Image.FirstOrDefault();
-            @Html.Partial("Components/_EasterEgg", image)
+            var image = Model.Image;
             @RenderImage(image)
         }
     </div>
-
-    @if(!string.IsNullOrEmpty(Model.Headline))
+    <div class="hero__content">
+    @if (!string.IsNullOrEmpty(Model.Trompet))
     {
-        <small>@Html.Raw(Model.Headline)</small>
+        <small>@Model.Trompet</small>
     }
+    @if(!string.IsNullOrEmpty(Model.Heading))
+    {
+        <h1>@Html.Raw(Model.Heading)</h1>
+    }
+    </div>
 </div>
 
 @helper RenderImage(IPublishedContent image)
@@ -28,7 +32,6 @@
                 Image = image,
                 GridSize = Model.GridSize,
                 ImageHeight = Model.ImageHeight,
-                ImageHeightLargeDesktop = Model.ImageHeightLargeDesktop,
                 ImageHeightMobile = Model.ImageHeightMobile,
                 GridTotalPadding = Model.GridTotalPadding
             })

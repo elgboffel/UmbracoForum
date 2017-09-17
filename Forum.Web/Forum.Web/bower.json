@@ -1,10 +1,10 @@
 {
   "name": "ClientName.Web",
   "dependencies": {
-    "bootstrap": "*",
-    "picturefill": "*"
-  },
-  "resolutions": {
-    "bootstrap": "*"
+    "bootstrap": "^3.3.5",
+    "font-awesome": "^4.7.0",
+    "picturefill": "^3.0.1",
+    "owl-carousel2": "^2.2.0",
+    "lightbox2": "^2.9.0"
   }
 }

@@ -1,0 +1,29 @@
+﻿
+.breadcrumb {
+    background-color: transparent;
+    padding:0;
+    margin: 0;
+    .fluid-property(margin-bottom, 40, 50);
+    font-size: 13px;
+    color: @alt-text-color;
+    font-family: @font-family-sans-serif;
+    line-height: 1.1;
+
+    a {
+        text-decoration: none;
+    }
+
+    > li {
+
+        + li:before {
+            content: "·";
+            padding: 0 1px;
+            color: inherit;
+            font-weight: 700;
+        }
+    }
+
+    &__active {
+        font-weight: 700;
+    }
+}

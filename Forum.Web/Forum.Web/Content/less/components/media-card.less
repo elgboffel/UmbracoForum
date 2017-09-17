@@ -1,0 +1,119 @@
+﻿@import (reference) "../../components/bootstrap/less/variables.less";
+@import (reference) "../../components/bootstrap/less/mixins.less";
+
+.media-card {
+    &:hover {
+        .media-card__title h4::After {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+
+    > a {
+        display: flex;
+    }
+
+    &__image {
+        flex: 1;
+        margin-right: 40px;
+        margin-bottom: 15px;
+
+        &--async {
+            img {
+                max-width: 200px;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-bottom: 15px;
+    }
+
+    &__title {
+
+        > h4 {
+            display: inline-block;
+            margin: 0 0 7px;
+            .line-bottom-hover(@brand-primary);
+        }
+    }
+
+    &__lead {
+        margin: 0 0 7px;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: @toned-yellow;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    &__tag {
+        margin-right: 15px;
+    }
+
+    &__info {
+        display: flex;
+        flex-wrap: wrap;
+        align-self: flex-end;
+        margin-top: auto;
+        width: 100%;
+    }
+
+    &__box {
+        background-color: #F2F2F2;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        flex: 1 auto;
+        padding: 8px 11px 0 11px;
+        font-size: 13px;
+        line-height: 1.2;        
+
+        time, p {
+            margin: 0 0 8px;
+        }
+
+        p:first-of-type {
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 0 3px;
+        }
+    }
+
+    @media(min-width: @grid-float-breakpoint) {
+        &__image {
+            flex: 5;
+        }
+
+        &__content {
+            flex: 10;
+        }
+    }
+
+    @media(min-width: @screen-md-min) {
+        &__image {
+            flex: 4;
+        }
+
+        &__content {
+            flex: 10;
+        }
+    }
+
+    @media(min-width: @screen-lg-min) {
+        &__image {
+            flex: 3;
+        }
+
+        &__content {
+            flex: 10;
+        }
+    }
+}

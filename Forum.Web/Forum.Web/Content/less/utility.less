@@ -1,0 +1,166 @@
+﻿@import (reference) "../components/bootstrap/less/variables.less";
+@import (reference) "../components/bootstrap/less/mixins.less";
+
+
+/*****************************************
+    Code re-used on in severel modules
+******************************************/
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.container{
+    overflow: hidden;
+}
+
+button {
+    outline: none !important;
+}
+
+a {
+    outline: none !important;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+
+    &:hover {
+        font-family: inherit;
+        font-weight: inherit;
+        color: inherit;
+
+        h1, h2, h3, h4, h5, h6, p, ul, small, time {
+            text-decoration: none;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, small, time {
+        text-decoration: none;
+    }
+}
+
+ul, ol {
+    margin-bottom: 25px;
+}
+
+picture {
+    img {
+        .img-responsive();
+    }
+}
+
+img {
+    .img-responsive();
+}
+
+.spacer20 {
+    margin: 20px 0 0 0;
+    .clearfix();
+}
+
+.spacer25 {
+    margin: 25px 0 0 0;
+    .clearfix();
+}
+
+.spacer40 {
+    margin: 20px 0;
+    .clearfix();
+}
+
+.spacer45 {
+    margin: 22.5px 0;
+    .clearfix();
+}
+
+.spacer55 {
+    @media(min-width: @screen-sm-min){
+        margin: 55px 0 0 0;
+        .clearfix();
+    }
+}
+
+.reset-margin {
+    margin: 0 !important;
+}
+
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    /* Safari fix
+     * See: http://stackoverflow.com/questions/32894387/safari-flexbox-does-not-contain-its-elements-properly
+    */
+    &.row {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.overflow-visible {
+    overflow: visible !important;
+}
+
+.inline-block {
+    display: inline-block !important;
+}
+
+.margin-top25 {
+    margin-top: 25px !important;
+}
+
+.margin-bt20 {
+    margin-bottom: 20px !important;
+}
+
+.margin-bt25 {
+    margin-bottom: 25px !important;
+}
+
+.margin-top-bt55 {
+    margin: 55px 0;
+}
+
+.flex-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Safari fix
+     * See: http://stackoverflow.com/questions/32894387/safari-flexbox-does-not-contain-its-elements-properly
+    */
+    &.row {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.border-wrap {
+    border-top: solid 1px #a1a1a1;
+    border-bottom: solid 1px #a1a1a1;
+}
+
+.bg-gray {
+    background-color: #d8d8d8;
+    margin: 25px 0 50px 0;
+}
+
+.bg-gray-gradient {
+    background: linear-gradient(to bottom, #707070, #565757);
+}
+
+.btn-list {
+    padding: 25px 0 0 0;
+    h3 {
+        margin: 0 0 25px;
+    }
+
+    ul {
+        > li {
+            margin: 0 0 10px;
+        }
+    }
+}
