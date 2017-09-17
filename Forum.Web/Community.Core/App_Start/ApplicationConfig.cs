@@ -20,11 +20,10 @@ namespace Community.Core
 
             RouteTable.Routes.MapUmbracoRoute(
                 "CommunityRoute",
-                "Community/{name}",
+                "Community/{action}/{name}",
                 new
                 {
                     controller = "Community",
-                    action = "Post",
                     name = UrlParameter.Optional
                 },
                 new CommunityRouteHandler());
@@ -37,16 +36,6 @@ namespace Community.Core
         {
             UmbracoHelper helper = new UmbracoHelper(umbracoContext);
             string documentAlias = "community";
-
-            //if (helper.UmbracoContext.PublishedContentRequest == null)
-            //    return null;
-
-            //var currentPage = helper.AssignedContentItem;
-
-            //if (currentPage.DocumentTypeAlias.InvariantEquals(documentAlias))
-            //    return currentPage;
-            //else
-            //    return null;
 
             return helper.TypedContentAtRoot()
                 .First()

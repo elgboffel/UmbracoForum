@@ -5,10 +5,10 @@ namespace Community.Core.Controllers
 {
     public class LoginController : SurfaceController
     {
-        public ActionResult Login()
+        public ActionResult Index()
         {
 
-            return PartialView("_Login", model);
+            return PartialView("_Login");
         }
     }
 }

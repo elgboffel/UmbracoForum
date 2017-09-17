@@ -22,22 +22,21 @@ namespace Community.Core.Controllers
             return View(communityModel);
         }
 
-        public ActionResult Create(RenderModel model)
-        {
-
-            return View("Forms/Create");
-        }
-
-        [HttpGet()]
         public ActionResult Post(RenderModel model, string name)
         {
-            var url = Url.Action("Post");
             var communityModel = new CommunityViewModel(model.Content)
             {
                 Post = _unitOfWork.PostRepository.Find(x => x.Title == name).First()
             };
 
             return View(communityModel);
+        }
+
+        [Authorize]
+        public ActionResult CreatePost(RenderModel model)
+        {
+
+            return View("Forms/Create");
         }
 
         protected override void Dispose(bool disposing)

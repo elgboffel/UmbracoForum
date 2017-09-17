@@ -28,9 +28,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Html.Raw(SEOChecker.Library.MetaData.Current.RenderTags())
-    @Html.CachedPartial("_Favicons", Model, 3600, false)
-    @Html.CachedPartial("_OpenGraph", Model, 300, true)
+    @*@Html.Raw(SEOChecker.Library.MetaData.Current.RenderTags())*@
+    @*@Html.CachedPartial("_Favicons", Model, 3600, false)*@
     @Html.RenderCssHere()
 </head>
 <body ng-app="app">
