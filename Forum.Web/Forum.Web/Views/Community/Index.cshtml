@@ -1,0 +1,13 @@
+﻿@inherits UmbracoViewPage<CommunityViewModel>
+@using Community.Core.ViewModels
+@using Umbraco.Web.Mvc
+
+<h1>Community</h1>
+
+
+@foreach (var post in Model.Posts)
+{
+    <h1>@post.Title</h1>
+    @Html.Raw(post.Content)
+    <a href="@(Url.Action("Post", "Community", new { name = post.Title }))">content</a>
+}
