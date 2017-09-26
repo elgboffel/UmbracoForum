@@ -298,6 +298,7 @@
     <Content Include="scripts\app\tree-menu.js" />
     <Content Include="scripts\foundation.form.validation.js" />
     <Content Include="scripts\jquery.validate.hooks.js" />
+    <Content Include="Views\UmbracoIdentityAccount\_ViewStart.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -416,8 +417,6 @@
     <Content Include="Views\Community\Index.cshtml" />
     <Content Include="Views\Community\Forms\Create.cshtml" />
     <Content Include="Views\Community\Post.cshtml" />
-    <Content Include="Views\Community\Login\Index.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount\_ViewStart.cshtml" />
     <Content Include="Views\UmbracoIdentityAccount\ShowRoles.cshtml" />
     <Content Include="Views\UmbracoIdentityAccount\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\UmbracoIdentityAccount\ResetPassword.cshtml" />
@@ -433,7 +432,6 @@
     <Content Include="Views\UmbracoIdentityAccount\ExternalLoginsList.cshtml" />
     <Content Include="Views\UmbracoIdentityAccount\ExternalLoginFailure.cshtml" />
     <Content Include="Views\UmbracoIdentityAccount\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\AccountLayout.cshtml" />
     <Content Include="Views\Account.cshtml" />
     <Content Include="scripts\app\carousel.jquery.js.map" />
     <Content Include="scripts\app\search-form.js.map" />
